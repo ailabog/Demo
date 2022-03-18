@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="horizonTests" verbose="1" parallel="tests" thread-count="100">
+<parameter name="environment" value="${environment}" />
+	<test name="horizonTests" parallel="none" preserve-order="true">
+       <classes>
+           <class name="com.ea.horizon.users.tests.HorizonTest" />
+           <class name="com.ea.horizon.users.tests.CreateUserTest" />
+           <class name="com.ea.horizon.users.tests.UpdateUserTest" />
+           <class name="com.ea.horizon.users.tests.SendActivationLinkUserTest" />
+           <class name="com.ea.horizon.users.tests.DeactivateUserTest" />
+
+
+       </classes>
+     </test>
+</suite>

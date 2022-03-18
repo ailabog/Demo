@@ -1,0 +1,9 @@
+/target/
+/classpath/
+test-output/
+bitbucket-pipelines.yml
+lib/
+build.xml
+.idea/
+.project/
+testng-results.xsl

@@ -1,0 +1,202 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+ 
+  <groupId>IdentityServices</groupId>
+  <artifactId>identity-regression</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>Identity Services Automation Project</name>
+  <description>Identity Services Regression Automation Project</description>
+
+  <properties>
+   <java.version>1.8</java.version>
+   <project.build.sourceEnconding>UTF-8</project.build.sourceEnconding>
+   <testng.version>7.0.0-beta1</testng.version>
+   <selenium.version>3.4.0</selenium.version>
+   <slf4j.version>1.7.25</slf4j.version>
+   <logback.version>1.2.3</logback.version>
+   <jackson-core.version>2.5.0</jackson-core.version>
+   <jackson-databind.version>2.5.0</jackson-databind.version>
+   <jackson-annotations.version>2.5.0</jackson-annotations.version>
+   <jmh.version>0.5.3</jmh.version>
+   <maven.compiler.version>3.10.1</maven.compiler.version>
+   <maven.surefire.version>2.22.2</maven.surefire.version>
+   <maven.failsafe.version>2.20</maven.failsafe.version>
+   <rxjava.version>0.16.1</rxjava.version>
+   <lambda.version>0.0.3</lambda.version>
+   <maven-surefire-report-plugin>3.0.0-M4</maven-surefire-report-plugin>
+   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+   <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+   <project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
+   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+   </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>${testng.version}</version>
+  </dependency>
+          
+  <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>${selenium.version}</version>
+  </dependency>  
+  
+ <dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-core</artifactId>
+    <version>${jackson-core.version}</version>
+</dependency>
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <version>${jackson-databind.version}</version>
+</dependency>
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-annotations</artifactId>
+    <version>${jackson-annotations.version}</version>
+</dependency>
+     
+  <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>jcl-over-slf4j</artifactId>
+      <version>${slf4j.version}</version>
+  </dependency>
+       
+  <dependency>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-core</artifactId>
+            <version>${jmh.version}</version>
+  </dependency>
+        <dependency>
+            <groupId>com.netflix.rxjava</groupId>
+            <artifactId>rxjava-core</artifactId>
+            <version>${rxjava.version}</version>
+        </dependency>
+       
+         <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>${logback.version}</version>
+       </dependency>
+       
+       <!-- https://mvnrepository.com/artifact/com.macasaet.lambda/fluent-lambda -->
+<dependency>
+    <groupId>com.macasaet.lambda</groupId>
+    <artifactId>fluent-lambda</artifactId>
+    <version>${lambda.version}</version>
+</dependency>
+
+      <!-- https://mvnrepository.com/artifact/org.json/json -->
+      <dependency>
+          <groupId>org.json</groupId>
+          <artifactId>json</artifactId>
+          <version>20211205</version>
+      </dependency>
+
+
+      <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
+      <dependency>
+          <groupId>io.rest-assured</groupId>
+          <artifactId>rest-assured</artifactId>
+          <version>4.5.1</version>
+          <scope>test</scope>
+      </dependency>
+
+  </dependencies>
+  
+  <build>
+   <resources>
+    <resource>
+      <directory>src/test/resources</directory>
+      <filtering>true</filtering>
+     </resource>
+    </resources>
+    <plugins>
+      <plugin>
+         <artifactId>maven-compiler-plugin</artifactId>
+         <version>${maven.compiler.version}</version>
+         <configuration>
+           <source>${java.version}</source>
+           <target>${java.version}</target>
+          </configuration>
+       </plugin>
+      <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork>
+                    <encoding>iso-8859-1</encoding>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.8</version>
+                <configuration>
+                      <suiteXmlFiles>
+                       <suiteXmlFile>src/test/resources/Core/identityServicesTests/identityServicesTests.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
+       
+          <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <version>${maven-compiler-plugin.version}</version>
+    <configuration>
+        <source>1.8</source>
+        <target>1.8</target>
+        <encoding>UTF-8</encoding>
+    </configuration>
+</plugin>
+
+<plugin>
+   <groupId>org.apache.maven.plugins</groupId>
+   <artifactId>maven-compiler-plugin</artifactId>
+   <version>2.3.2</version>
+   <configuration>
+       <encoding>Cp1252</encoding>
+   </configuration> 
+</plugin>
+
+       <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin></artifactId>
+          <version>${maven.surefire.version}</version>
+          <configuration>
+            <testFailureIgnore>true</testFailureIgnore>
+             <reuseForks>true</reuseForks>
+             
+           <suiteXmlFiles>
+              <suiteXmlFile>src/test/resources/Core/negativeTests/negativeTestsAllCountries.xml</suiteXmlFile>
+           </suiteXmlFiles>
+             <skipTests>false</skipTests>
+          </configuration> 
+        </plugin>
+        <plugin>
+        <groupId>org.apache.maven.plugins></groupId>
+        <artifactId>maven-failsafe-plugin></artifactId>
+        <version>${maven.failsafe.version}</version>
+      
+        </plugin>
+      </plugins>
+    </build>    
+    
+    <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-report-plugin</artifactId>
+        <version>${maven-surefire-report-plugin.version}</version>
+      </plugin>
+    </plugins>
+  </reporting>
+
+  </project>        
+
