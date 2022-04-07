@@ -2,11 +2,11 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
  
-  <groupId>IdentityServices</groupId>
-  <artifactId>identity-regression</artifactId>
+  <groupId>MyStore</groupId>
+  <artifactId>MyStore-regression</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>Identity Services Automation Project</name>
-  <description>Identity Services Regression Automation Project</description>
+  <name>MyStore Automation Project</name>
+  <description>MyStore Regression Automation Project</description>
 
   <properties>
    <java.version>1.8</java.version>
@@ -19,8 +19,11 @@
    <jackson-databind.version>2.5.0</jackson-databind.version>
    <jackson-annotations.version>2.5.0</jackson-annotations.version>
    <jmh.version>0.5.3</jmh.version>
+   <rest-assured.version>4.5.1</rest-assured.version>
    <maven.compiler.version>3.10.1</maven.compiler.version>
-   <maven.surefire.version>2.22.2</maven.surefire.version>
+   <maven.compiler.source>1.8</maven.compiler.source>
+   <maven.compiler.target>1.8</maven.compiler.target>
+   <maven.surefire.version>3.0.0-M5</maven.surefire.version>
    <maven.failsafe.version>2.20</maven.failsafe.version>
    <rxjava.version>0.16.1</rxjava.version>
    <lambda.version>0.0.3</lambda.version>
@@ -76,8 +79,8 @@
             <artifactId>rxjava-core</artifactId>
             <version>${rxjava.version}</version>
         </dependency>
-       
-         <dependency>
+
+   <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
       <version>${logback.version}</version>
@@ -90,20 +93,13 @@
     <version>${lambda.version}</version>
 </dependency>
 
-      <!-- https://mvnrepository.com/artifact/org.json/json -->
-      <dependency>
-          <groupId>org.json</groupId>
-          <artifactId>json</artifactId>
-          <version>20211205</version>
-      </dependency>
-
-
       <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
       <dependency>
           <groupId>io.rest-assured</groupId>
           <artifactId>rest-assured</artifactId>
-          <version>4.5.1</version>
-          <scope>test</scope>
+          <version>4.3.3</version>
+          <!--            remove test scope to enable RestAssured code under "main" directory -->
+          <!--            <scope>test</scope>-->
       </dependency>
 
   </dependencies>
@@ -116,14 +112,15 @@
      </resource>
     </resources>
     <plugins>
-      <plugin>
-         <artifactId>maven-compiler-plugin</artifactId>
-         <version>${maven.compiler.version}</version>
-         <configuration>
-           <source>${java.version}</source>
-           <target>${java.version}</target>
-          </configuration>
-       </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.2</version>
+            <configuration>
+                <source>${maven.compiler.source}</source>
+                <target>${maven.compiler.target}</target>
+            </configuration>
+        </plugin>
       <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -140,7 +137,7 @@
                 <version>2.8</version>
                 <configuration>
                       <suiteXmlFiles>
-                       <suiteXmlFile>src/test/resources/Core/identityServicesTests/identityServicesTests.xml</suiteXmlFile>
+                       <suiteXmlFile>src/test/resources/Core/mystore/mystoreTests.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
@@ -197,6 +194,5 @@
       </plugin>
     </plugins>
   </reporting>
-
-  </project>        
+  </project>
 

@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="mystoreTests" verbose="1" parallel="tests" thread-count="100">
+<parameter name="environment" value="${environment}" />
+	<test name="mystoreTests" parallel="none" preserve-order="true">
+       <classes>
+           <class name="com.mystore.tests.SignUpLoginSignOutTest" />
+           <class name="com.mystore.tests.CartTest" />
+           <class name="com.mystore.apis.API_CreateOrderPositiveTest" />
+           <class name="com.mystore.apis.API_CreateOrderNegativeTest" />
+           <class name="com.mystore.apis.API_CreateUserNegativeTest" />
+       </classes>
+     </test>
+</suite>
